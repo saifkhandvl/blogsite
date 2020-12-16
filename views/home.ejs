@@ -1,0 +1,26 @@
+
+<%-include("partials/header") -%>
+
+<p class="v2 v3"> <%=hs%> </P>
+
+<% function truncate(str, no_words) {%>
+   <% return str.split(" ").splice(0,no_words).join(" ");%>
+<%}%>
+
+
+		<% post.forEach(function(p){ %>
+			<div class="post">
+		
+		<h1 class="v1"> <%=p.title%> </h1>
+		<%try{%>
+		<p class="v2"> <%=p.content.substring(0, 150) + " ..."%><a class="bb" href="/post/<%=p.title%> ">Read More</a> </p>
+			<%}catch(e){%>
+			<p class="v2"> <%=p.content + " ..."%><a href="/post/<%=p.title%> ">Read More</a> </p>	
+			<%}%>
+	 
+</div>
+	
+	<% }) %>
+
+<%-include("partials/footer") -%>
+
